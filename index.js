@@ -9,6 +9,8 @@ const hbs = require("hbs")
     2. MIDDLEWARES
 */
 
+require("dotenv").config()
+
 app.use(express.static("public"))
 app.set("view engine", "hbs")
 hbs.registerPartials(__dirname + "/views/partials")
@@ -113,6 +115,6 @@ app.get("/teams", (req, res) => {
     4. SERVIDOR
 */
 
-app.listen("3002", () => {
+app.listen(process.env.PORT || 3004, () => {
   console.log("Estoy en el puerto 3002")
 })
